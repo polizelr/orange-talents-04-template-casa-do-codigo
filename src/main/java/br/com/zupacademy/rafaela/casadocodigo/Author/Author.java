@@ -35,4 +35,10 @@ public class Author {
     )
     private LocalDateTime CreatedAt;
 
+    public Author(String name, String email, String description) {
+        Name = name;
+        Email = email;
+        Description = description;
+        CreatedAt = LocalDateTime.now();
+    }
 }
