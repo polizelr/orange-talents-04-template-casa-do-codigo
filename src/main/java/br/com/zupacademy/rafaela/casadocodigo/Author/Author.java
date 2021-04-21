@@ -41,4 +41,24 @@ public class Author {
         Description = description;
         CreatedAt = LocalDateTime.now();
     }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return CreatedAt;
+    }
 }
