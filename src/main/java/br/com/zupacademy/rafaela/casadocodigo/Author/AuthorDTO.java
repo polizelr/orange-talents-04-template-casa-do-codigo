@@ -3,41 +3,41 @@ package br.com.zupacademy.rafaela.casadocodigo.Author;
 import java.time.LocalDateTime;
 
 public class AuthorDTO {
-    private Long Id;
+    private Long id;
 
-    private String Name;
+    private String name;
 
-    private String Email;
+    private String email;
 
-    private String Description;
+    private String description;
 
-    private LocalDateTime CreatedAt;
+    private LocalDateTime createdAt;
 
    public AuthorDTO(Author author){
-       this.Id = author.getId();
-       this.Name = author.getName();
-       this.Email = author.getEmail();
-       this.Description = author.getDescription();
-       this.CreatedAt = author.getCreatedAt();
+       this.id = author.getId();
+       this.name = author.getName();
+       this.email = author.getEmail();
+       this.description = author.getDescription();
+       this.createdAt = author.getCreatedAt();
    }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public LocalDateTime getCreatedAt() {
-        return CreatedAt;
+        return createdAt;
     }
 }

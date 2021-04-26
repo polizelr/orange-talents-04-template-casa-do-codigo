@@ -15,50 +15,49 @@ public class Author {
             sequenceName = "author_sequence",
             allocationSize = 1
     )
-    private Long Id;
+    private Long id;
 
     @Column(nullable = false)
-    private String Name;
+    private String name;
 
     @Column(nullable = false)
-    private String Email;
+    private String email;
 
     @Column(
             nullable = false,
             length = 400
     )
-    private String Description;
+    private String description;
 
     @Column(
             nullable = false,
             columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
-    private LocalDateTime CreatedAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     public Author(String name, String email, String description) {
-        Name = name;
-        Email = email;
-        Description = description;
-        CreatedAt = LocalDateTime.now();
+        this.name = name;
+        this.email = email;
+        this.description = description;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public LocalDateTime getCreatedAt() {
-        return CreatedAt;
+        return createdAt;
     }
 }
