@@ -4,6 +4,11 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(name = "customer_email_unique", columnNames = "email"),
+        }
+)
 public class Author {
     @Id
     @GeneratedValue(
@@ -34,6 +39,10 @@ public class Author {
             columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Deprecated
+    public Author() {
+    }
 
     public Author(String name, String email, String description) {
         this.name = name;
