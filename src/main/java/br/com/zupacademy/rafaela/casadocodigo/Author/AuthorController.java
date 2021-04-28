@@ -2,10 +2,9 @@ package br.com.zupacademy.rafaela.casadocodigo.Author;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.UniqueConstraint;
+
 import javax.validation.Valid;
 
 @RequestMapping("api/v1/autor")
@@ -13,17 +12,10 @@ import javax.validation.Valid;
 public class AuthorController {
 
     private final AuthorRepository authorRepository;
-    private UniqueEmailValidator uniqueEmailValidator;
 
     @Autowired
-    public AuthorController(AuthorRepository authorRepository, UniqueEmailValidator uniqueEmailValidator){
+    public AuthorController(AuthorRepository authorRepository){
         this.authorRepository = authorRepository;
-        this.uniqueEmailValidator = uniqueEmailValidator;
-    }
-
-    @InitBinder
-    public void init(WebDataBinder binder){
-        binder.addValidators(uniqueEmailValidator);
     }
 
     @PostMapping

@@ -1,9 +1,7 @@
 package br.com.zupacademy.rafaela.casadocodigo.Category;
 
-import br.com.zupacademy.rafaela.casadocodigo.Author.AuthorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,17 +10,10 @@ import javax.validation.Valid;
 @RequestMapping("api/v1/categoria")
 public class CategoryController {
     private final CategoryRepository categoryRepository;
-    private UniqueCategoryValidator uniqueCategoryValidator;
 
     @Autowired
-    public CategoryController(CategoryRepository categoryRepository, UniqueCategoryValidator uniqueCategoryValidator) {
+    public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
-        this.uniqueCategoryValidator = uniqueCategoryValidator;
-    }
-
-    @InitBinder
-    public void init(WebDataBinder binder){
-        binder.addValidators(uniqueCategoryValidator);
     }
 
     @PostMapping

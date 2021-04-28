@@ -1,5 +1,6 @@
 package br.com.zupacademy.rafaela.casadocodigo.Author;
 
+import br.com.zupacademy.rafaela.casadocodigo.config.validation.UniqueValue;
 
 import javax.validation.constraints.*;
 
@@ -10,6 +11,7 @@ public class AuthorForm {
 
     @Email
     @NotBlank
+    @UniqueValue(domainClass = Author.class, fieldName = "email")
     private String email;
 
     @NotBlank

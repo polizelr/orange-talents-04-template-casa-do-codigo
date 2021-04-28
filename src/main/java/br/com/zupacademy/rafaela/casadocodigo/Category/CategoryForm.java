@@ -1,10 +1,12 @@
 package br.com.zupacademy.rafaela.casadocodigo.Category;
 
+import br.com.zupacademy.rafaela.casadocodigo.config.validation.UniqueValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotBlank;
 
 public class CategoryForm {
+    @UniqueValue(domainClass = Category.class, fieldName = "name")
     @NotBlank
     private String name;
 
