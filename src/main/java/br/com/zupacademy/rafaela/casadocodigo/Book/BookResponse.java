@@ -1,5 +1,7 @@
 package br.com.zupacademy.rafaela.casadocodigo.Book;
 
+import org.springframework.data.domain.Page;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -75,5 +77,9 @@ public class BookResponse {
 
     public Long getIdAuthor() {
         return idAuthor;
+    }
+
+    public static Page<BookResponse> convert(Page<Book> books){
+        return books.map(BookResponse::new);
     }
 }

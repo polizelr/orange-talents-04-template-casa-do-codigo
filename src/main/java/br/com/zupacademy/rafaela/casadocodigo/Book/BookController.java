@@ -5,14 +5,13 @@ import br.com.zupacademy.rafaela.casadocodigo.Author.AuthorRepository;
 import br.com.zupacademy.rafaela.casadocodigo.Category.Category;
 import br.com.zupacademy.rafaela.casadocodigo.Category.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
+
 
 @RequestMapping("api/v1/livro")
 @RestController
@@ -36,6 +35,12 @@ public class BookController {
         Book book = bookRequest.convert(author, category);
         bookRepository.save(book);
         return ResponseEntity.ok().body(new BookResponse(book));
+    }
+
+    @GetMapping
+    public Page<BookResponse> getBooks(Pageable pagination){
+        Page<Book> books = bookRepository.findAll(pagination);
+        return BookResponse.convert(books);
     }
 
 }
