@@ -24,10 +24,13 @@ public class ExistsIdValidator implements ConstraintValidator<ExistsId, Object> 
 
     @Override
     public boolean isValid(Object o, ConstraintValidatorContext constraintValidatorContext) {
+        if(o == null){
+            return true;
+        }
         Query query = manager.createQuery("select 1 from "+aClass.getName()+" where "+fieldName+"=:value");
         query.setParameter("value", o);
         List<?> resultList = query.getResultList();
-        Assert.state(!resultList.isEmpty(),  aClass +" com o atributo "+ fieldName+" = "+o + " não cadastrado(a)");
+        Assert.isTrue(resultList.size() <=1,  aClass +" com o atributo "+ fieldName+" = "+o + " não cadastrado(a)");
 
         return !resultList.isEmpty();
     }
