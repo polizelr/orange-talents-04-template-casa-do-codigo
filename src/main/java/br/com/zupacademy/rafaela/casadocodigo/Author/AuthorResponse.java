@@ -2,7 +2,7 @@ package br.com.zupacademy.rafaela.casadocodigo.Author;
 
 import java.time.LocalDateTime;
 
-public class AuthorDTO {
+public class AuthorResponse {
     private Long id;
 
     private String name;
@@ -13,7 +13,7 @@ public class AuthorDTO {
 
     private LocalDateTime createdAt;
 
-   public AuthorDTO(Author author){
+   public AuthorResponse(Author author){
        this.id = author.getId();
        this.name = author.getName();
        this.email = author.getEmail();

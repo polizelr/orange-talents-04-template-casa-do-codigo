@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotBlank;
 
-public class CategoryForm {
+public class CategoryRequest {
     @UniqueValue(domainClass = Category.class, fieldName = "name")
     @NotBlank
     private String name;
 
-    public CategoryForm(@JsonProperty("name") String name){
+    public CategoryRequest(@JsonProperty("name") String name){
         this.name = name;
     }
 

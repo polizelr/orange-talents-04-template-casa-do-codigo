@@ -17,9 +17,9 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryDTO> addCategory(@RequestBody @Valid CategoryForm form){
-        Category newCategory = form.convert();
+    public ResponseEntity<CategoryResponse> addCategory(@RequestBody @Valid CategoryRequest request){
+        Category newCategory = request.convert();
         categoryRepository.save(newCategory);
-        return ResponseEntity.ok().body(new CategoryDTO(newCategory));
+        return ResponseEntity.ok().body(new CategoryResponse(newCategory));
     }
 }

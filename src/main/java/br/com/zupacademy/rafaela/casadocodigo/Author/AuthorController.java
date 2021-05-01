@@ -19,11 +19,11 @@ public class AuthorController {
     }
 
     @PostMapping
-    public ResponseEntity<AuthorDTO> addAuthor(@Valid @RequestBody AuthorForm authorForm){
-        Author author = authorForm.convert();
+    public ResponseEntity<AuthorResponse> addAuthor(@Valid @RequestBody AuthorRequest authorRequest){
+        Author author = authorRequest.convert();
         authorRepository.save(author);
 
-        return ResponseEntity.ok().body(new AuthorDTO(author));
+        return ResponseEntity.ok().body(new AuthorResponse(author));
     }
 
 }

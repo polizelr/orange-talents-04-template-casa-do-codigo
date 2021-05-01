@@ -4,7 +4,7 @@ import br.com.zupacademy.rafaela.casadocodigo.config.validation.UniqueValue;
 
 import javax.validation.constraints.*;
 
-public class AuthorForm {
+public class AuthorRequest {
 
     @NotBlank
     private String name;
@@ -18,7 +18,7 @@ public class AuthorForm {
     @Size(max = 400)
     private String description;
 
-    public AuthorForm(String name, String email, String description) {
+    public AuthorRequest(String name, String email, String description) {
         this.name = name;
         this.email = email;
         this.description = description;
