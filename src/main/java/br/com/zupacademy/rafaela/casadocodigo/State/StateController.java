@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
@@ -22,6 +23,7 @@ public class StateController {
     }
 
     @PostMapping
+    @Transactional
     public ResponseEntity<StateResponse> addState(@Valid @RequestBody StateRequest stateRequest){
         Country country = countryRepository.findById(stateRequest.getIdCountry()).get();
         State state = stateRequest.convert(country);

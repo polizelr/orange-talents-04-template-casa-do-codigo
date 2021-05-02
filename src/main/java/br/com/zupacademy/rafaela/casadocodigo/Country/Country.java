@@ -1,6 +1,9 @@
 package br.com.zupacademy.rafaela.casadocodigo.Country;
 
+import br.com.zupacademy.rafaela.casadocodigo.State.State;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(
